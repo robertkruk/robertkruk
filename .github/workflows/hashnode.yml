@@ -1,8 +1,11 @@
 # This is a basic workflow that is manually triggered
 
-name: Manual workflow
-
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
-- name: hashnode-user-with-posts-json
-  uses: imbhargav5/hashnode-user-with-posts-json@v1.1
+  - name: Get recent blog posts from hashnode
+        id: hashnode-recent-blog-posts
+        uses: imbhargav5/hashnode-user-with-posts-json@master
+        with:
+          username: "imbhargav5"         
+      - name: Generate README file
+        run: node action.js
+        env:
+          HASHNODE_PROFILE: ${{steps.hashnode-recent-blog-posts.outputs.data}}
