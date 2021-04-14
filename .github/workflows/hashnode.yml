@@ -4,7 +4,7 @@
         id: hashnode-recent-blog-posts
         uses: imbhargav5/hashnode-user-with-posts-json@master
         with:
-          username: "imbhargav5"         
+          username: "robertkruk"         
       - name: Generate README file
         run: node action.js
         env:
