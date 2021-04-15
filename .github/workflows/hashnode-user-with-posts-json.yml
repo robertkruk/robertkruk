@@ -5,7 +5,11 @@
         uses: imbhargav5/hashnode-user-with-posts-json@master
         with:
           username: "robertkruk"         
-      - name: Generate README file
+  - name: Generate README file
         run: node action.js
         env:
           HASHNODE_PROFILE: ${{steps.hashnode-recent-blog-posts.outputs.data}}
+  - name: Push new README.md
+        uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
